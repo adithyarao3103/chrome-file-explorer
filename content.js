@@ -5,9 +5,12 @@ function enhanceFileExplorer() {
     defaultHeader.remove();
     }
 
-    document.getElementById('parentDirLink').classList.remove('up');
-    document.getElementById('parentDirLink').classList.add('parent');
-    document.getElementById('parentDirText').innerText = 'Parent Directory';
+    const parentDirLink = document.getElementById('parentDirLink');
+    if (parentDirLink) {
+        parentDirLink.classList.remove('up');
+        parentDirLink.classList.add('parent');
+        parentDirLink.innerText = 'Parent Directory';
+}
 
     // Create container
     const container = document.createElement('div');
@@ -24,7 +27,6 @@ function enhanceFileExplorer() {
     </h1>
     `;
     
-    // Move the table into the container
     const table = document.querySelector('table');
     if (table) {
     container.appendChild(header);
@@ -32,7 +34,6 @@ function enhanceFileExplorer() {
     document.body.appendChild(container);
     }
 
-    // Decode URL-encoded names in links
     document.querySelectorAll('td a').forEach(link => {
     const text = link.textContent;
     if (text && text !== '[Parent Directory]') {
@@ -40,16 +41,10 @@ function enhanceFileExplorer() {
     }
     });
 
-    // Remove all default icons and images
-    // const icons = document.querySelectorAll('td img, td a img, img[src$="blank.gif"], img[src$="directory.gif"], img[src$="generic.gif", div img, div a img]');
-    // icons.forEach(icon => icon.remove());
-    
-    // Also remove any background images set inline
     document.querySelectorAll('td a').forEach(link => {
     link.style.backgroundImage = 'none';
     });
 
-    // Add file size formatting
     const sizeColumns = document.querySelectorAll('td:nth-child(2)');
     sizeColumns.forEach(cell => {
     const size = parseInt(cell.data-value);
@@ -58,7 +53,6 @@ function enhanceFileExplorer() {
     }
     });
 
-    // Add date formatting
     const dateColumns = document.querySelectorAll('td:nth-child(3)');
     dateColumns.forEach(cell => {
     const date = new Date(cell.textContent);
@@ -99,12 +93,5 @@ function formatDate(date) {
     }) + ' ' + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     }
 }
-
-// Run the enhancement when the page loads
-// if (document.readyState === 'loading') {
-//     document.addEventListener('DOMContentLoaded', enhanceFileExplorer);
-// } else {
-//     enhanceFileExplorer();
-// }
 
 enhanceFileExplorer();
