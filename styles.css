@@ -87,11 +87,11 @@ tr {
     animation-fill-mode: both;
 }
 
-tr:nth-child(1) { animation-delay: 0.1s; }
+/* tr:nth-child(1) { animation-delay: 0.1s; }
 tr:nth-child(2) { animation-delay: 0.15s; }
 tr:nth-child(3) { animation-delay: 0.2s; }
 tr:nth-child(4) { animation-delay: 0.25s; }
-tr:nth-child(5) { animation-delay: 0.3s; }
+tr:nth-child(5) { animation-delay: 0.3s; } */
 
 tr:hover td {
     background-color: var(--glass-surface-hover);
@@ -270,4 +270,10 @@ a.icon {
 td.detailsColumn{
     padding-left: 16px!important;
     text-align: left!important;
+}
+
+.parent{
+    width: 66vw!important;
+    display: flex!important;
+    align-items: left!important;
 }

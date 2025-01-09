@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Material File Explorer",
+    "name": "File Explorer",
     "version": "1.0",
-    "description": "Enhances the appearance of Chrome's local file explorer with Material Design",
+    "description": "Enhances the appearance of Chrome's local file explorer with modern design",
     "permissions": ["activeTab"],
     "content_scripts": [
         {

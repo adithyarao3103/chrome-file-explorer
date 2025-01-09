@@ -6,6 +6,8 @@ function enhanceFileExplorer() {
     }
 
     document.getElementById('parentDirLink').classList.remove('up');
+    document.getElementById('parentDirLink').classList.add('parent');
+    document.getElementById('parentDirText').innerText = 'Parent Directory';
 
     // Create container
     const container = document.createElement('div');
@@ -50,7 +52,7 @@ function enhanceFileExplorer() {
     // Add file size formatting
     const sizeColumns = document.querySelectorAll('td:nth-child(2)');
     sizeColumns.forEach(cell => {
-    const size = parseInt(cell.textContent);
+    const size = parseInt(cell.data-value);
     if (!isNaN(size)) {
         cell.textContent = formatFileSize(size);
     }
