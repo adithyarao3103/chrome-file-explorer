@@ -28,7 +28,7 @@ This Chrome extension enhances the default file explorer experience by adding fi
 
 ## Usage
 
-1. Navigate to any file explorer page in Chrome
+1. Navigate to any local folder page in Chrome
 2. Hover over any supported file link
 3. A preview window will appear showing the file content
 4. For videos, use the player controls to play/pause and adjust volume
