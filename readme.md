@@ -36,7 +36,6 @@ This Chrome extension enhances the default file explorer experience by adding fi
 ## Privacy & Permissions
 
 This extension requires the following permissions:
-- Access to file URLs (to generate previews)
-- Storage (for saving user preferences)
+- Access to file URLs
 
 No data is collected or transmitted to external servers.
