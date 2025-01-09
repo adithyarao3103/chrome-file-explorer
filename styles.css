@@ -1,0 +1,273 @@
+:root {
+    /* Dark warm tones for glassmorphism */
+    --glass-bg: rgba(31, 35, 20, 0.85);
+    --glass-border: rgba(255, 180, 76, 0.25);
+    --glass-surface: rgba(76, 78, 44, 0.9);
+    --glass-surface-hover: rgba(55, 40, 30, 0.95);
+    --glass-text: rgba(255, 240, 220, 0.95);
+    --glass-text-medium: rgba(255, 220, 180, 0.85);
+    --glass-text-dim: rgba(255, 200, 150, 0.7);
+    --glass-primary: rgba(242, 255, 53, 0.95);
+    --glass-primary-hover: rgba(255, 176, 73, 1);
+    --glass-error: rgba(255, 99, 71, 0.8);
+    --glass-shadow: rgba(0, 0, 0, 0.2);
+    --glass-gradient: linear-gradient(135deg, rgba(45, 32, 25, 0.9), rgba(35, 25, 20, 0.95));
+}
+
+body {
+    font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #2a1f1a, #382218);
+    color: var(--glass-text);
+    margin: 0;
+    padding: 24px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.explorer-container {
+    width: 66%;
+    min-width: 768px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px var(--glass-shadow);
+    padding: 24px;
+    margin: 24px auto;
+    animation: containerFadeIn 0.6s ease-out;
+}
+
+.explorer-header {
+    color: var(--glass-primary);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--glass-border);
+    animation: slideDown 0.5s ease-out;
+}
+
+table {
+    width: 100%;
+    background: transparent;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    animation: fadeIn 0.4s ease-out;
+}
+
+th {
+    background: var(--glass-surface);
+    color: var(--glass-primary);
+    padding: 16px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--glass-border);
+    transition: background-color 0.3s ease;
+}
+
+td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--glass-border);
+    color: var(--glass-text-medium);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+tr {
+    animation: slideIn 0.3s ease-out;
+    animation-fill-mode: both;
+}
+
+tr:nth-child(1) { animation-delay: 0.1s; }
+tr:nth-child(2) { animation-delay: 0.15s; }
+tr:nth-child(3) { animation-delay: 0.2s; }
+tr:nth-child(4) { animation-delay: 0.25s; }
+tr:nth-child(5) { animation-delay: 0.3s; }
+
+tr:hover td {
+    background-color: var(--glass-surface-hover);
+    transform: translateX(4px);
+}
+
+#parentDirLinkBox {
+    text-align: left !important;
+    margin-bottom: 16px;
+    animation: slideRight 0.4s ease-out;
+}
+
+#parentDirLinkBox a {
+    color: var(--glass-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    padding: 8px 0;
+    transition: all 0.3s ease;
+}
+
+#parentDirLinkBox a:hover {
+    color: var(--glass-primary-hover);
+    transform: translateX(-4px);
+}
+
+td a {
+    color: var(--glass-text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+td a:hover {
+    color: var(--glass-primary);
+    transform: translateX(4px);
+}
+
+td a::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.87;
+    flex-shrink: 0;
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+/* SVG icons - adjusted for dark theme */
+#parentDirLinkBox a::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.95;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff9c35"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>');
+}
+
+td a[href$="/"]::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff9c35"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>');
+}
+
+td a:not([href$="/"])::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fff0dc"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2z"/></svg>');
+}
+
+/* Animation Keyframes */
+
+@keyframes borderGlow {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.87;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+
+@keyframes containerFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Hide default elements */
+img[src$="blank.gif"],
+img[src$="directory.gif"],
+img[src$="generic.gif"],
+a img,
+td a:before:not(:only-child),
+td > img,
+td > a > img, 
+div > img, 
+div > a > img {
+    display: none !important;
+}
+
+td a {
+    background-image: none !important;
+}
+
+a.icon {
+    padding-inline-start: 0!important;
+}
+
+#parentDirectory {
+    position: absolute!important;
+    left: 0!important;
+}
+
+td.detailsColumn{
+    padding-left: 16px!important;
+    text-align: left!important;
+}
